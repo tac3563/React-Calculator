@@ -21,6 +21,7 @@ export default function Todo() {
   return (
     <>
       <input
+        onKeyDown={(e) => (e.key === 'Enter' ? addTodos() : null)}
         value={task}
         onChange={(e) => setTask(e.target.value)}
         type="text"
