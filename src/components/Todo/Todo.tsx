@@ -1,9 +1,12 @@
 import './Todo.scss';
 import { useState } from 'react';
 
+type Task = string;
+type Todos = string[] | [];
+
 export default function Todo() {
-  const [task, setTask] = useState('');
-  const [todos, setTodos] = useState([]);
+  const [task, setTask] = useState<Task>('');
+  const [todos, setTodos] = useState<Todos>([]);
 
   function addTodos() {
     if (task) {
@@ -12,7 +15,7 @@ export default function Todo() {
     }
   }
 
-  function removeTodo(index) {
+  function removeTodo(index: number) {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
@@ -21,16 +24,16 @@ export default function Todo() {
   return (
     <>
       <input
-        onKeyDown={(e) => (e.key === 'Enter' ? addTodos() : null)}
+        onKeyDown={(e) => e.key === 'Enter' && addTodos()}
         value={task}
         onChange={(e) => setTask(e.target.value)}
         type="text"
         name="add task"
-        id=""
+        id="add-task"
         placeholder="add a task..."
       />
       <button onClick={addTodos}>Add Task</button>
-      {todos.length > 0 ? (
+      {todos.length > 0 && (
         <ul>
           {todos.map((todo, index) => (
             <li key={index}>
@@ -39,7 +42,7 @@ export default function Todo() {
             </li>
           ))}
         </ul>
-      ) : null}
+      )}
     </>
   );
 }
