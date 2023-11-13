@@ -1,0 +1,13 @@
+body {
+  #root {
+    margin: auto;
+
+    .app-container {
+      height: 50vw;
+      width: 50vh;
+      border: solid 1px #dad9d9;
+      padding: 2em 3em;
+      border-radius: 20px;
+    }
+  }
+}

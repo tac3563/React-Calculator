@@ -1,6 +1,18 @@
 .todo {
-    h2 {
-        color: red;
-        font-size: 48px;
+  display: flex;
+  place-items: first baseline;
+  font-size: 1.5rem;
+
+  &::before {
+    content: '+';
+  }
+  .todo-add-task {
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color);
+
+    &::placeholder {
+      color: var(--primary-color);
     }
+  }
 }
